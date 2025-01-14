@@ -19,7 +19,7 @@
     --text-secondary: #888888;
     --accent: #E0A628;
     --border-color: #333333;
-    --sidebar-width: 240px;
+    --sidebar-width: 260px;
     --font-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
     --transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -90,8 +90,9 @@ body {
 
 .notes h2 {
     font-size: 0.9375rem;
-    font-weight: 400;
+    /* font-weight: 400; */
     color: var(--text);
+    margin: 5px;
 }
 
 .new-note {
@@ -128,11 +129,17 @@ body {
     cursor: pointer;
     transition: var(--transition);
     font-size: 0.875rem;
-    min-height: 3.5rem;
 }
 
 .note-item a {
-    padding: 0.5rem 1rem;
+    padding: 0.75rem 1rem;
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    gap: 0.75rem;
+    width: 100%;
+    height: 70px;
+    align-items: center;
 }
 
 .note-item:hover {
@@ -144,19 +151,28 @@ body {
 }
 
 .emoji {
-    font-size: 1rem;
-    line-height: 1.4;
+    line-height: 1;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--background-secondary);
+    border-radius: 6px;
+    margin-top: 4px;
 }
 
 .note-content {
     flex: 1;
     min-width: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.25rem;
 }
 
 .note-content div:first-child {
-    font-size: 0.875rem;
     font-weight: 500;
-    margin-bottom: 0.25rem;
     color: var(--text);
 }
 
@@ -166,15 +182,19 @@ body {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    display: flex;
+    gap: 0.5rem;
 }
 
 .date {
     font-size: 0.75rem;
     color: var(--text-secondary);
+    white-space: nowrap;
 }
 
 /* Main Content Styles */
 .main-content {
+    position: relative;
     flex: 1;
     margin-left: var(--sidebar-width);
     padding: 3.5rem 2rem 2rem;
@@ -184,7 +204,8 @@ body {
 .last-edited {
     position: absolute;
     top: 1rem;
-    right: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
     color: var(--text-secondary);
     font-size: 0.75rem;
     font-weight: 600;
