@@ -393,18 +393,18 @@ body {
 /* Adjust font sizes for mobile */
 @media (max-width: 480px) {
     .content h1 {
-        font-size: 1.5rem;
+        font-size: 1.75rem;
     }
 
     .content h2 {
-        font-size: 0.9375rem;
+        font-size: 1.125rem;
     }
 
     .content p, .content li {
-        font-size: 0.8125rem;
+        font-size: 0.9375rem;
     }
 
     .note-item {
-        font-size: 0.8125rem;
+        font-size: 0.9375rem;
     }
 }
