@@ -85,7 +85,7 @@ body {
     position: fixed;
     top: 1rem;
     left: 1rem;
-    z-index: 200;
+    z-index: 1100;
     background: none;
     border: none;
     color: var(--text);
@@ -113,7 +113,7 @@ body {
     transform: translateZ(0);
     backface-visibility: hidden;
     transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    z-index: 200;
+    z-index: 1050;
 }
 
 .notes-header {
@@ -128,15 +128,6 @@ body {
     /* font-weight: 400; */
     color: var(--text);
     margin: 5px;
-}
-
-.new-note {
-    background: none;
-    border: none;
-    color: var(--text);
-    cursor: pointer;
-    padding: 0.25rem;
-    font-size: 0.875rem;
 }
 
 .pinned {
@@ -347,7 +338,7 @@ body {
     .mobile-menu-button {
         display: block;
         position: fixed;
-        z-index: 1000;
+        z-index: 1100;
     }
 
     .sidebar {
@@ -357,7 +348,7 @@ body {
         left: 0;
         bottom: 0;
         background-color: var(--background);
-        z-index: 1000;
+        z-index: 1050;
         height: 100vh;
         overflow-y: auto;
         -webkit-overflow-scrolling: touch;
@@ -376,7 +367,7 @@ body {
         right: 0;
         bottom: 0;
         background-color: rgba(0, 0, 0, 0.3);
-        z-index: 999;
+        z-index: 1040;
         backdrop-filter: blur(2px);
     }
 
