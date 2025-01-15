@@ -23,6 +23,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
+    <button class="mobile-menu-button">
+        <img src="./sidebar.leading.png" alt="Menu" />
+    </button>
+    
+    <div class="sidebar-backdrop"></div>
+    
     <div class="container">
         <div class="sidebar">
             <div class="notes">
@@ -117,5 +123,44 @@
             </div>
         </div>
     </div>
+
+    <script>
+        // Mobile menu functionality
+        const mobileMenuButton = document.querySelector('.mobile-menu-button');
+        const sidebarLinks = document.querySelectorAll('.sidebar a');
+        const sidebarElement = document.querySelector('.sidebar');
+        const backdropElement = document.querySelector('.sidebar-backdrop');
+
+        function toggleSidebar() {
+            sidebarElement.classList.toggle('active');
+            backdropElement.classList.toggle('active');
+            
+            // Prevent main content scroll when sidebar is open
+            if (sidebarElement.classList.contains('active')) {
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.body.style.overflow = '';
+            }
+        }
+
+        mobileMenuButton.addEventListener('click', toggleSidebar);
+        backdropElement.addEventListener('click', toggleSidebar);
+
+        // Close sidebar when clicking a link on mobile
+        sidebarLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth <= 768) {
+                    toggleSidebar();
+                }
+            });
+        });
+
+        // Close sidebar on escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && sidebarElement.classList.contains('active')) {
+                toggleSidebar();
+            }
+        });
+    </script>
 </body>
 </html> 

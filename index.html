@@ -21,6 +21,12 @@
     <link rel="prefetch" href="tech-stack.html">
 </head>
 <body>
+    <button class="mobile-menu-button">
+        <img src="./sidebar.leading.png" alt="Menu" />
+    </button>
+    
+    <div class="sidebar-backdrop"></div>
+    
     <div class="container">
 
         <div class="sidebar">
@@ -131,5 +137,44 @@
             </div>
         </div>
     </div>
+
+    <script>
+        // Mobile menu functionality
+        const mobileMenuButton = document.querySelector('.mobile-menu-button');
+        const sidebar = document.querySelector('.sidebar');
+        const backdrop = document.querySelector('.sidebar-backdrop');
+
+        function toggleSidebar() {
+            sidebar.classList.toggle('active');
+            backdrop.classList.toggle('active');
+            
+            // Prevent main content scroll when sidebar is open
+            if (sidebar.classList.contains('active')) {
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.body.style.overflow = '';
+            }
+        }
+
+        mobileMenuButton.addEventListener('click', toggleSidebar);
+        backdrop.addEventListener('click', toggleSidebar);
+
+        // Close sidebar when clicking a link on mobile
+        const sidebarLinks = document.querySelectorAll('.sidebar a');
+        sidebarLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth <= 768) {
+                    toggleSidebar();
+                }
+            });
+        });
+
+        // Close sidebar on escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && sidebar.classList.contains('active')) {
+                toggleSidebar();
+            }
+        });
+    </script>
 </body>
 </html>
