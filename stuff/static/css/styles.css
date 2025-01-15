@@ -347,7 +347,7 @@ body {
     .mobile-menu-button {
         display: block;
         position: fixed;
-        z-index: 300;
+        z-index: 1000;
     }
 
     .sidebar {
@@ -357,10 +357,11 @@ body {
         left: 0;
         bottom: 0;
         background-color: var(--background);
-        z-index: 250;
+        z-index: 1000;
         height: 100vh;
         overflow-y: auto;
         -webkit-overflow-scrolling: touch;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     }
 
     .sidebar.active {
@@ -375,7 +376,7 @@ body {
         right: 0;
         bottom: 0;
         background-color: rgba(0, 0, 0, 0.3);
-        z-index: 200;
+        z-index: 999;
         backdrop-filter: blur(2px);
     }
 
@@ -389,6 +390,7 @@ body {
         padding-top: 4rem;
         height: 100vh;
         overflow-y: auto;
+        z-index: 1;
     }
 }
 
