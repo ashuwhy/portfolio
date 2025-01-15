@@ -403,3 +403,9 @@ body {
         font-size: 0.9375rem;
     }
 }
+
+/* Add this CSS for the close icon */
+.mobile-menu-button.close-icon img {
+    transform: rotate(45deg); /* Example transformation */
+    transition: transform 0.3s ease;
+}
