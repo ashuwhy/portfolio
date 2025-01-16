@@ -1,7 +1,7 @@
 @font-face {
     font-family: 'Inter';
     src: local('Inter'),
-         url('/_next/Inter/Inter-VariableFont_opsz\,wght.ttf') format('truetype-variations');
+         url('/stuff/static/fonts/Inter-VariableFont_opsz\,wght.ttf') format('truetype-variations');
     font-weight: 100 900;
     font-style: normal;
     font-display: swap;
@@ -11,9 +11,19 @@
 @font-face {
     font-family: 'Inter';
     src: local('Inter Italic'),
-         url('/_next/Inter/Inter-Italic-VariableFont_opsz\,wght.ttf') format('truetype-variations');
+         url('/stuff/static/fonts/Inter-Italic-VariableFont_opsz\,wght.ttf') format('truetype-variations');
     font-weight: 100 900;
     font-style: italic;
+    font-display: swap;
+    font-synthesis: none;
+}
+
+@font-face {
+    font-family: 'Kugile';
+    src: local('Kugile'),
+         url('/stuff/kugile/Kugile_Demo.ttf') format('truetype-variations');
+    font-weight: 100 900;
+    font-style: normal;
     font-display: swap;
     font-synthesis: none;
 }
@@ -41,7 +51,7 @@
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    contain: layout style paint;
+    /* contain: layout style paint; */
 }
 
 html {
@@ -148,10 +158,13 @@ body {
 }
 
 .notes h2 {
-    /* font-size: 0.9375rem; */
+    font-size: 32px;
     /* font-weight: 400; */
     color: var(--text);
     margin: 5px;
+    margin-left: 1px;
+    font-family: 'Kugile', var(--font-sans);
+    font-weight: 400;
 }
 
 .pinned {
@@ -172,18 +185,20 @@ body {
     display: flex;
     flex-direction: column;
     contain: content;
+    margin: 0 12px;
 }
 
 .note-item {
     display: block;
     padding: 0;
     cursor: pointer;
-    transition: var(--transition);
-    font-size: 0.875rem;
+    transition: background-color 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+    font-size: 0.9375rem;
     transform: translate3d(0, 0, 0);
     will-change: transform, background-color;
-    contain: strict;
-    isolation: isolate;
+    contain: layout style;
+    border-radius: 8px;
+    margin-bottom: 2px;
 }
 
 .note-item a {
@@ -297,7 +312,7 @@ body {
 }
 
 .content ul {
-    /* list-style-type: none; */
+    list-style-type: disc;
     margin-bottom: 1rem;
     margin-left: 34px;
     margin-top: 16px;
@@ -388,7 +403,8 @@ body {
 
 .back-button img {
     display: block;
-    transform: rotate(180deg);
+    width: 24px;
+    margin-top: -1px;
 }
 
 /* Media Queries for Responsive Design */
