@@ -407,6 +407,7 @@ body {
 
     body:not(.is-index) .back-button {
         display: block; /* Show back button on non-index pages */
+        margin-left: 5px;
     }
 
     body.is-index .main-content {

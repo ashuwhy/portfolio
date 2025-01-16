@@ -419,19 +419,40 @@ body {
 /* Adjust font sizes for mobile */
 @media (max-width: 480px) {
     .content h1 {
-        font-size: 1.75rem;
+        font-size: 2rem;
     }
 
     .content h2 {
-        font-size: 1.125rem;
+        font-size: 1.25rem;
     }
 
     .content p, .content li {
-        font-size: 0.9375rem;
+        font-size: 1rem;
     }
 
     .note-item {
-        font-size: 0.9375rem;
+        font-size: 1rem;
+    }
+
+    .note-content div:first-child {
+        font-size: 1rem;
+    }
+
+    .note-content .preview {
+        font-size: 0.875rem;
+    }
+
+    .date {
+        font-size: 0.875rem;
+    }
+
+    .pinned, .today, .older {
+        font-size: 0.875rem;
+    }
+
+    .notes h2 {
+        font-size: 1.125rem;
+        margin: 20px 24px;
     }
 }
 
