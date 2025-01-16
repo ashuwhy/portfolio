@@ -1,0 +1,65 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'Kugile';
+  src: url('/stuff/kugile/Kugile_Demo.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --background: #1a1a1a;
+  --background-secondary: #2a2a2a;
+  --text: #e6e6e6;
+  --text-secondary: #888888;
+  --accent: #E0A628;
+  --border-color: #333333;
+  --sidebar-width: 260px;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.note-item {
+  border-radius: 12px;
+  transition: background-color 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.note-item:hover,
+.note-item.active {
+  background-color: var(--background-secondary);
+}
+
+@media (max-width: 586px) {
+  body:not(.is-index) .sidebar {
+    display: none;
+  }
+
+  body.is-index .main-content {
+    display: none;
+  }
+
+  .sidebar {
+    position: relative;
+    transform: none;
+    width: 100%;
+    height: auto;
+    min-height: 100vh;
+  }
+
+  .main-content {
+    margin-left: 0;
+    max-width: 100%;
+    padding-top: 4rem;
+    min-height: 100vh;
+    z-index: 1;
+    margin-top: 8px;
+  }
+} 
