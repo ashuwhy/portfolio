@@ -388,7 +388,7 @@ body {
 
 .back-button img {
     display: block;
-    width: 24px;
+    transform: rotate(180deg);
 }
 
 /* Media Queries for Responsive Design */
