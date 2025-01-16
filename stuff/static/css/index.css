@@ -404,89 +404,55 @@ body {
         position: relative;
         height: auto;
         min-height: 100vh;
-        padding: 16px 0;
-    }
-
-    .notes h2 {
-        font-size: 28px;
-        margin: 24px 28px;
-        font-weight: 700;
-        letter-spacing: -0.02em;
-    }
-
-    .pinned, .today, .older {
-        font-size: 14px;
-        padding: 12px 16px;
-        margin: 8px 28px;
-        letter-spacing: 0.02em;
-    }
-
-    .note-items {
-        margin: 8px 28px;
-    }
-
-    .note-item {
-        margin-bottom: 2px;
-        border-radius: 12px;
-    }
-
-    .note-item a {
-        padding: 16px;
-        height: 84px;
-        gap: 16px;
-    }
-
-    .emoji {
-        width: 34px;
-        height: 34px;
-        font-size: 18px;
-        border-radius: 8px;
-    }
-
-    .note-content div:first-child {
-        font-size: 16px;
-        font-weight: 600;
-        letter-spacing: -0.01em;
-        margin-bottom: 4px;
-    }
-
-    .note-content .preview {
-        font-size: 14px;
-        line-height: 1.4;
-    }
-
-    .date {
-        font-size: 13px;
     }
 
     .main-content {
         margin-left: 0;
         max-width: 100%;
-        padding: 5rem 2rem 2rem;
+        padding-top: 4rem;
         min-height: 100vh;
         z-index: 1;
+        margin-top: 8px;
     }
 }
 
 /* Adjust font sizes for mobile */
 @media (max-width: 480px) {
     .content h1 {
-        font-size: 28px;
-        letter-spacing: -0.02em;
+        font-size: 2rem;
     }
 
     .content h2 {
-        font-size: 18px;
-        letter-spacing: -0.01em;
+        font-size: 1.25rem;
     }
 
     .content p, .content li {
-        font-size: 16px;
-        line-height: 1.5;
+        font-size: 1rem;
     }
 
     .note-item {
-        font-size: 16px;
+        font-size: 1rem;
+    }
+
+    .note-content div:first-child {
+        font-size: 1rem;
+    }
+
+    .note-content .preview {
+        font-size: 0.875rem;
+    }
+
+    .date {
+        font-size: 0.875rem;
+    }
+
+    .pinned, .today, .older {
+        font-size: 0.875rem;
+    }
+
+    .notes h2 {
+        font-size: 1.125rem;
+        margin: 20px 24px;
     }
 }
 
