@@ -134,19 +134,22 @@ body {
     /* font-size: 0.9375rem; */
     /* font-weight: 400; */
     color: var(--text);
-    margin: 18px 22px;
+    margin: 10px 22px;
+    font-size: 28px;
+    font-weight: 700;
 }
 
 .pinned {
-    padding: 0.5rem 1rem;
-    font-size: 0.75rem;
+    padding: 0.75rem 1rem;
+    font-size: 0.8125rem;
     color: var(--text-secondary);
     display: flex;
     align-items: center;
     gap: 0.5rem;
     font-weight: 600;
-
-    margin: 0 22px;
+    margin: 0px 22px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
 .pinned i {
@@ -165,20 +168,22 @@ body {
     padding: 0;
     cursor: pointer;
     transition: background-color 0.15s cubic-bezier(0.4, 0, 0.2, 1);
-    font-size: 0.875rem;
+    font-size: 0.9375rem;
     transform: translate3d(0, 0, 0);
     will-change: transform, background-color;
     contain: layout style;
+    border-radius: 12px;
+    margin-bottom: 2px;
 }
 
 .note-item a {
-    padding: 0.75rem 1rem;
+    padding: 0.875rem 1rem;
     text-decoration: none;
     color: inherit;
     display: flex;
-    gap: 0.75rem;
+    gap: 0.875rem;
     width: 100%;
-    height: 70px;
+    height: 76px;
     align-items: center;
     transform: translate3d(0, 0, 0);
     will-change: transform;
@@ -195,14 +200,15 @@ body {
 
 .emoji {
     line-height: 1;
-    width: 28px;
-    height: 28px;
+    width: 32px;
+    height: 32px;
     display: flex;
     align-items: center;
     justify-content: center;
     background: var(--background-secondary);
-    border-radius: 6px;
+    border-radius: 8px;
     margin-top: 4px;
+    font-size: 18px;
 }
 
 .note-content {
@@ -217,20 +223,22 @@ body {
 .note-content div:first-child {
     font-weight: 500;
     color: var(--text);
+    font-size: 16px;
 }
 
 .note-content .preview {
-    font-size: 0.75rem;
+    font-size: 0.8125rem;
     color: var(--text-secondary);
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
     display: flex;
     gap: 0.5rem;
+    /* margin-top: 2px; */
 }
 
 .date {
-    font-size: 0.75rem;
+    font-size: 0.8125rem;
     color: var(--text-secondary);
     white-space: nowrap;
 }
@@ -324,22 +332,24 @@ body {
 
 /* Today Section */
 .today {
-    padding: 0.5rem 1rem;
-    font-size: 0.75rem;
+    padding: 0.75rem 1rem;
+    font-size: 0.8125rem;
     color: var(--text-secondary);
     font-weight: 600;
-
-    margin: 0 22px;
+    margin: 0px 22px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
 /* Older Section */
 .older {
-    padding: 0.5rem 1rem;
-    font-size: 0.75rem;
+    padding: 0.75rem 1rem;
+    font-size: 0.8125rem;
     color: var(--text-secondary);
     font-weight: 600;
-
-    margin: 0 22px;
+    margin: 0px 22px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
 .note-item a {
@@ -404,6 +414,7 @@ body {
         position: relative;
         height: auto;
         min-height: 100vh;
+        padding: 12px 0;
     }
 
     .main-content {
@@ -419,40 +430,36 @@ body {
 /* Adjust font sizes for mobile */
 @media (max-width: 480px) {
     .content h1 {
-        font-size: 2rem;
+        font-size: 1.75rem;
     }
 
     .content h2 {
-        font-size: 1.25rem;
+        font-size: 1.125rem;
     }
 
     .content p, .content li {
-        font-size: 1rem;
+        font-size: 0.9375rem;
     }
 
     .note-item {
-        font-size: 1rem;
+        font-size: 0.9375rem;
+    }
+
+    .notes h2 {
+        margin-top: 14px;
+        font-size: 28px;
     }
 
     .note-content div:first-child {
-        font-size: 1rem;
+        font-size: 17px;
     }
 
-    .note-content .preview {
-        font-size: 0.875rem;
-    }
-
-    .date {
+    .note-content .preview, .date {
         font-size: 0.875rem;
     }
 
     .pinned, .today, .older {
-        font-size: 0.875rem;
-    }
-
-    .notes h2 {
-        font-size: 1.125rem;
-        margin: 20px 24px;
+        font-size: 0.8125rem;
     }
 }
 
