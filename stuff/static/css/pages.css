@@ -56,7 +56,6 @@ body {
     min-height: 100vh;
     position: relative;
     will-change: transform;
-    overflow: hidden;
 }
 
 /* Search Bar */
@@ -129,7 +128,7 @@ body {
 }
 
 .notes h2 {
-    /* font-size: 0.9375rem; */
+    font-size: 0.9375rem;
     /* font-weight: 400; */
     color: var(--text);
     margin: 5px;
@@ -236,8 +235,6 @@ body {
     transform: translateZ(0);
     will-change: transform;
     backface-visibility: hidden;
-    height: 100vh;
-    overflow-y: auto;
 }
 
 .last-edited {
@@ -343,7 +340,7 @@ body {
 /* Back Button Styles */
 .back-button {
     display: none;
-    position: absolute;
+    position: fixed;
     top: 1rem;
     left: 1rem;
     z-index: 1100;
@@ -366,7 +363,7 @@ body {
 }
 
 /* Media Queries for Responsive Design */
-@media (max-width: 586px) {
+@media (max-width: 768px) {
     .mobile-menu-button {
         display: none; /* Hide by default, will show only on index */
     }
@@ -388,9 +385,9 @@ body {
     }
 
     .sidebar {
-        position: relative;
         transform: none;
         width: 100%;
+        position: relative;
         height: auto;
         min-height: 100vh;
     }
@@ -402,12 +399,6 @@ body {
         min-height: 100vh;
         z-index: 1;
         margin-top: 8px;
-        height: auto;
-        overflow-y: visible;
-    }
-
-    .container {
-        overflow: visible;
     }
 }
 

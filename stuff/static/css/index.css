@@ -56,7 +56,6 @@ body {
     min-height: 100vh;
     position: relative;
     will-change: transform;
-    overflow: hidden;
 }
 
 /* Search Bar */
@@ -132,7 +131,7 @@ body {
     /* font-size: 0.9375rem; */
     /* font-weight: 400; */
     color: var(--text);
-    margin: 5px;
+    margin: 18px 22px;
 }
 
 .pinned {
@@ -143,6 +142,8 @@ body {
     align-items: center;
     gap: 0.5rem;
     font-weight: 600;
+
+    margin: 0 22px;
 }
 
 .pinned i {
@@ -152,6 +153,7 @@ body {
 .note-items {
     display: flex;
     flex-direction: column;
+    margin: 0 22px;
 }
 
 .note-item {
@@ -236,8 +238,6 @@ body {
     transform: translateZ(0);
     will-change: transform;
     backface-visibility: hidden;
-    height: 100vh;
-    overflow-y: auto;
 }
 
 .last-edited {
@@ -321,6 +321,8 @@ body {
     font-size: 0.75rem;
     color: var(--text-secondary);
     font-weight: 600;
+
+    margin: 0 22px;
 }
 
 /* Older Section */
@@ -329,6 +331,8 @@ body {
     font-size: 0.75rem;
     color: var(--text-secondary);
     font-weight: 600;
+
+    margin: 0 22px;
 }
 
 .note-item a {
@@ -343,7 +347,7 @@ body {
 /* Back Button Styles */
 .back-button {
     display: none;
-    position: absolute;
+    position: fixed;
     top: 1rem;
     left: 1rem;
     z-index: 1100;
@@ -366,7 +370,7 @@ body {
 }
 
 /* Media Queries for Responsive Design */
-@media (max-width: 586px) {
+@media (max-width: 768px) {
     .mobile-menu-button {
         display: none; /* Hide by default, will show only on index */
     }
@@ -388,9 +392,9 @@ body {
     }
 
     .sidebar {
-        position: relative;
         transform: none;
         width: 100%;
+        position: relative;
         height: auto;
         min-height: 100vh;
     }
@@ -402,12 +406,6 @@ body {
         min-height: 100vh;
         z-index: 1;
         margin-top: 8px;
-        height: auto;
-        overflow-y: visible;
-    }
-
-    .container {
-        overflow: visible;
     }
 }
 
