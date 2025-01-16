@@ -1,17 +1,21 @@
 @font-face {
     font-family: 'Inter';
-    src: url('/_next/Inter/Inter-VariableFont_opsz\,wght.ttf') format('truetype-variations');
+    src: local('Inter'),
+         url('/_next/Inter/Inter-VariableFont_opsz\,wght.ttf') format('truetype-variations');
     font-weight: 100 900;
     font-style: normal;
     font-display: swap;
+    font-synthesis: none;
 }
 
 @font-face {
     font-family: 'Inter';
-    src: url('/_next/Inter/Inter-Italic-VariableFont_opsz\,wght.ttf') format('truetype-variations');
+    src: local('Inter Italic'),
+         url('/_next/Inter/Inter-Italic-VariableFont_opsz\,wght.ttf') format('truetype-variations');
     font-weight: 100 900;
     font-style: italic;
     font-display: swap;
+    font-synthesis: none;
 }
 
 :root {
@@ -23,7 +27,7 @@
     --border-color: #333333;
     --sidebar-width: 260px;
     --font-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-    --transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition: transform 0.15s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 * {
@@ -32,14 +36,18 @@
     box-sizing: border-box;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+    contain: layout style paint;
 }
 
 html {
     scroll-behavior: smooth;
+    text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
 }
 
 body {
@@ -49,6 +57,9 @@ body {
     line-height: 1.5;
     font-weight: 400;
     text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    contain: content;
 }
 
 .container {
@@ -56,7 +67,9 @@ body {
     min-height: 100vh;
     position: relative;
     will-change: transform;
+    contain: layout style paint;
     overflow: hidden;
+    isolation: isolate;
 }
 
 /* Search Bar */
@@ -71,6 +84,8 @@ body {
     display: flex;
     align-items: center;
     z-index: 100;
+    contain: layout paint;
+    backdrop-filter: blur(8px);
 }
 
 .search-bar input {
@@ -82,6 +97,7 @@ body {
     color: var(--text);
     font-size: 0.875rem;
     outline: none;
+    contain: strict;
 }
 
 /* Mobile Menu Button */
@@ -111,14 +127,17 @@ body {
     background-color: var(--background);
     height: 100vh;
     position: fixed;
-    overflow-y: auto;
+    overflow-y: overlay;
     border-right: 1px solid var(--border-color);
     overscroll-behavior: contain;
     -webkit-overflow-scrolling: touch;
-    transform: translateZ(0);
+    transform: translate3d(0, 0, 0);
     backface-visibility: hidden;
-    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    perspective: 1000;
+    transition: var(--transition);
     z-index: 1050;
+    contain: strict;
+    isolation: isolate;
 }
 
 .notes-header {
@@ -152,16 +171,19 @@ body {
 .note-items {
     display: flex;
     flex-direction: column;
+    contain: content;
 }
 
 .note-item {
     display: block;
     padding: 0;
     cursor: pointer;
-    transition: background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: var(--transition);
     font-size: 0.875rem;
-    transform: translateZ(0);
-    will-change: background-color;
+    transform: translate3d(0, 0, 0);
+    will-change: transform, background-color;
+    contain: strict;
+    isolation: isolate;
 }
 
 .note-item a {
@@ -173,7 +195,9 @@ body {
     width: 100%;
     height: 70px;
     align-items: center;
-    transform: translateZ(0);
+    transform: translate3d(0, 0, 0);
+    will-change: transform;
+    contain: strict;
 }
 
 .note-item:hover {
@@ -233,11 +257,13 @@ body {
     margin-left: var(--sidebar-width);
     padding: 3.5rem 2rem 2rem;
     max-width: calc(100% - var(--sidebar-width));
-    transform: translateZ(0);
+    transform: translate3d(0, 0, 0);
     will-change: transform;
     backface-visibility: hidden;
     height: 100vh;
-    overflow-y: auto;
+    overflow-y: overlay;
+    contain: content;
+    isolation: isolate;
 }
 
 .last-edited {

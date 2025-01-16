@@ -6,22 +6,32 @@
     <title>ashu - notes</title>
     <link rel="icon" type="image/png" href="https://cdn.icon-icons.com/icons2/294/PNG/256/Notes_31095.png">
     
+    <!-- Resource hints -->
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.icon-icons.com" crossorigin>
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    <link rel="dns-prefetch" href="https://cdn.icon-icons.com">
+    
     <!-- Preload critical resources -->
     <link rel="preload" href="stuff/static/css/index.css" as="style">
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" as="style">
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="preload" href="/_next/Inter/Inter-VariableFont_opsz,wght.ttf" as="font" type="font/ttf" crossorigin>
     
     <!-- Prefetch other pages for faster navigation -->
-    <link rel="prefetch" href="about-me.html">
-    <link rel="prefetch" href="links.html">
-    <link rel="prefetch" href="reading.html">
-    <link rel="prefetch" href="tech-stack.html">
+    <link rel="prefetch" href="about-me.html" as="document">
+    <link rel="prefetch" href="links.html" as="document">
+    <link rel="prefetch" href="reading.html" as="document">
+    <link rel="prefetch" href="tech-stack.html" as="document">
     
     <!-- Optimized stylesheet loading -->
     <link href="stuff/static/css/index.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" media="print" onload="this.media='all'">
     
-    <!-- Font optimization -->
+    <!-- Meta tags for performance -->
+    <meta http-equiv="Cache-Control" content="max-age=31536000">
+    <meta name="theme-color" content="#1a1a1a">
+    
+    <!-- Preconnect optimization -->
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
     <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
 </head>
@@ -90,18 +100,18 @@
         </div>
     </div>
 
-    <script>
+    <script defer>
         // Redirect to about-me.html on screens larger than mobile
         if (window.innerWidth > 586) {
             window.location.href = 'about-me.html';
         }
 
         // Also redirect if window is resized larger than mobile
-        window.addEventListener('resize', function() {
+        window.addEventListener('resize', () => {
             if (window.innerWidth > 586) {
                 window.location.href = 'about-me.html';
             }
-        });
+        }, { passive: true });
     </script>
 </body>
 </html>
