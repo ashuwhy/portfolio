@@ -32,6 +32,10 @@
     box-sizing: border-box;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 html {
@@ -333,55 +337,68 @@ body {
     align-items: flex-start;
 }
 
+/* Back Button Styles */
+.back-button {
+    display: none;
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+    z-index: 1100;
+    background: none;
+    border: none;
+    color: var(--text);
+    cursor: pointer;
+    padding: 0.5rem;
+    transition: var(--transition);
+    opacity: 0.6;
+}
+
+.back-button:hover {
+    opacity: 1;
+}
+
+.back-button img {
+    display: block;
+    transform: rotate(180deg);
+}
+
 /* Media Queries for Responsive Design */
 @media (max-width: 768px) {
     .mobile-menu-button {
-        display: block;
-        position: fixed;
-        z-index: 1100;
+        display: none; /* Hide by default, will show only on index */
+    }
+
+    body:not(.is-index) .sidebar {
+        display: none; /* Hide sidebar on non-index pages */
+    }
+
+    body.is-index .back-button {
+        display: none; /* Hide back button on index */
+    }
+
+    body:not(.is-index) .back-button {
+        display: block; /* Show back button on non-index pages */
+    }
+
+    body.is-index .main-content {
+        display: none; /* Hide main content on index for mobile */
     }
 
     .sidebar {
-        transform: translateX(-100%);
-        position: fixed;
-        top: 0;
-        left: 0;
-        bottom: 0;
-        background-color: var(--background);
-        z-index: 1050;
-        height: 100vh;
-        overflow-y: auto;
-        -webkit-overflow-scrolling: touch;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    }
-
-    .sidebar.active {
-        transform: translateX(0);
-    }
-
-    .sidebar-backdrop {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background-color: rgba(0, 0, 0, 0.3);
-        z-index: 1040;
-        backdrop-filter: blur(2px);
-    }
-
-    .sidebar-backdrop.active {
-        display: block;
+        transform: none;
+        width: 100%;
+        position: relative;
+        height: auto;
+        min-height: 100vh;
     }
 
     .main-content {
         margin-left: 0;
         max-width: 100%;
         padding-top: 4rem;
-        height: 100vh;
-        overflow-y: auto;
+        min-height: 100vh;
         z-index: 1;
+        margin-top: 8px;
     }
 }
 
@@ -404,8 +421,10 @@ body {
     }
 }
 
-/* Add this CSS for the close icon */
-.mobile-menu-button.close-icon img {
-    transform: rotate(45deg); /* Example transformation */
-    transition: transform 0.3s ease;
+/* Make links and their content selectable */
+a, a * {
+    -webkit-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
+    user-select: text;
 }
